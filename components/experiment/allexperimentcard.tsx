@@ -10,6 +10,7 @@ import { useTranslations, useLocale } from 'next-intl';
 // Import data eksperimen dari sumber data
 import { experiments } from '@/data/experiments';
 import { techColorMap } from '@/utils/techcolors';
+import Image from 'next/image';
 
 /**
  * Komponen ini menampilkan semua eksperimen dalam tata letak grid yang responsif.
@@ -32,7 +33,7 @@ export default function AllExperimentCard() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 w-full">
                 {
                     // Melakukan perulangan pada semua data eksperimen
-                    experiments.map((exp, index) => {
+                    experiments.map((exp) => {
                         // Mengambil judul dan deskripsi berdasarkan lokal saat ini
                         const title = (currentLocale === 'id' ? exp.title.id : exp.title.en);
                         const description = (currentLocale === 'id' ? exp.description.id : exp.description.en);
@@ -74,7 +75,7 @@ export default function AllExperimentCard() {
                                 {/* Gambar Thumbnail Eksperimen */}
                                 {exp.image && (
                                     <div className="relative w-full aspect-video overflow-hidden">
-                                        <img
+                                        <Image
                                             src={exp.image}
                                             alt={title}
                                             width={800}

@@ -4,7 +4,6 @@ import { useTranslations, useLocale } from 'next-intl';
 import { motion, Variants } from 'framer-motion';
 import Link from 'next/link';
 import React from 'react';
-import { useTheme } from 'next-themes';
 import ThemeToggle from '@/components/nav/themetoggle';
 import LanguageSwitcher from '@/components/nav/languageswitcher';
 import AnimatedBackground from '@/components/animated/animatedbackground';
@@ -30,8 +29,7 @@ const itemVariants: Variants = {
 const MotionLink = motion(Link);
 
 export default function NotFound() {
-    // Menggunakan useTheme untuk mendapatkan tema yang sedang aktif
-    const { resolvedTheme } = useTheme();
+
     // Hook untuk terjemahan
     const t = useTranslations('404');
     const locale = useLocale();

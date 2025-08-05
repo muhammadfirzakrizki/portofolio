@@ -1,8 +1,8 @@
 // components/AnimatedImage.tsx
 "use client";
 
-import { motion, Variants } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { motion, Variants } from 'framer-motion';\
+import Image from 'next/image';
 
 interface AnimatedImageProps {
   src: string;
@@ -32,7 +32,7 @@ export default function AnimatedImage({ src, alt, className }: AnimatedImageProp
       animate="animate"
       className="flex justify-center p-4 md:p-0" // Kelas wrapper, bisa disesuaikan
     >
-      <img
+      <Image
         src={src}
         alt={alt}
         className={className} // Kelas dari prop

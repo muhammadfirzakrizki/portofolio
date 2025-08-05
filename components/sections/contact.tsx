@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, Facebook, Instagram } from "lucide-react";
+import { Mail, Github, Facebook, Instagram } from "lucide-react";
 import { easeOut } from "framer-motion";
 import { useTranslations } from "next-intl";
 
@@ -85,7 +85,6 @@ const colorMap: { [key: string]: { [key: string]: string } } = {
 
 export default function Contact() {
   const t = useTranslations('contact');
-  const baseTransition = { duration: 0.6, ease: easeOut };
 
   return (
     <section

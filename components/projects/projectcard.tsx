@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, Variants, AnimatePresence } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { Github, Rocket } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -16,7 +16,7 @@ const itemVariants: Variants = {
     visible: { opacity: 1, y: 0 },
 };
 
-export default function ProjectCard({ project, lang = 'id' }: { project: Project; lang?: 'id' | 'en' }) {
+export default function ProjectCard({ project}: { project: Project; lang?: 'id' | 'en' }) {
     // Menentukan teks placeholder berdasarkan properti 'lang'
     const currentLocale = useLocale();
     const placeholderText = currentLocale === 'en' ? 'Example' : 'Contoh';

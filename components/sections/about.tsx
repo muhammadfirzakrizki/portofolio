@@ -50,10 +50,6 @@ export default function About() {
     return () => observer.disconnect();
   }, []);
 
-  // Tentukan warna gradien berdasarkan state tema
-  const lightGradientColor = "rgba(224, 232, 242, 0.4)"; // Warna dari Haikei 'wave' light
-  const darkGradientColor = "rgba(27, 36, 52, 0.4)";    // Warna dari Haikei 'wave' dark
-
   return (
     <section
       id="about"

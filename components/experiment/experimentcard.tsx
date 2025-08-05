@@ -9,6 +9,7 @@ import { useTranslations, useLocale } from 'next-intl';
 
 // utils
 import { techColorMap } from '@/utils/techcolors';
+import Link from 'next/link';
 
 export default function ExperimentCard() {
 
@@ -101,7 +102,7 @@ export default function ExperimentCard() {
                       </a>
                     )}
                     {exp.link && (
-                      <a
+                      <Link
                         href={exp.link}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -112,7 +113,7 @@ export default function ExperimentCard() {
                                                        hover:bg-gray-300 dark:hover:bg-gray-600"
                       >
                         <ExternalLink size={18} /> {t('demo')}
-                      </a>
+                      </Link>
                     )}
                   </div>
                 </div>
@@ -132,7 +133,7 @@ export default function ExperimentCard() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-12 text-center"
           >
-            <a
+            <Link
               href="/experiments"
               className="inline-flex items-center gap-2 rounded-full
                                        bg-blue-600 text-white
@@ -141,7 +142,7 @@ export default function ExperimentCard() {
                                        hover:bg-blue-700 hover:scale-105 dark:hover:bg-purple-700"
             >
               {t('viewAllExperiments')} <ArrowRight size={20} />
-            </a>
+            </Link>
           </motion.div>
         )
       }

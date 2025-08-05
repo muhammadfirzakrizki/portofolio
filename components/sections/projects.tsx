@@ -15,6 +15,7 @@ import { projects } from "@/data/projects";
 import AnimatedSectionHeader from '@/components/animated/animatedsectionheader';
 import AnimatedParagraph from '@/components/animated/animatedparagraph';
 import { techColorMap } from "@/utils/techcolors";
+import Image from "next/image";
 
 export default function Projects() {
   const t = useTranslations("project");
@@ -101,7 +102,7 @@ export default function Projects() {
                   {/* Project Image */}
                   {project.image && (
                     <div className="relative w-full aspect-video overflow-hidden">
-                      <img
+                      <Image
                         src={project.image}
                         alt={currentLocale === 'id' ? project.name.id : project.name.en}
                         width={800}
