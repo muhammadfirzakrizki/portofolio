@@ -1,0 +1,204 @@
+/* Import utama Tailwind CSS */
+@import "tailwindcss";
+
+/* Import plugin animasi Anda */
+@import "tw-animate-css";
+
+/* --- 1. Custom Variant untuk Dark Mode (dari inisialisasi Shadcn UI) --- */
+@custom-variant dark (&:is(.dark *));
+
+/* --- 2. Variabel CSS Global untuk Tailwind (dideklarasikan via @theme inline) --- */
+/* Ini adalah tempat Anda memetakan variabel kustom Anda ke variabel Shadcn UI */
+@theme inline {
+  /* Variabel sistem utama (sesuai konfigurasi Shadcn UI dan font Inter) */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-geist-mono);
+
+  /* Variabel tema umum Shadcn UI - kini dengan penyesuaian */
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+
+  /* Variabel chart (dari Shadcn UI, jika Anda berencana menggunakannya) */
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+
+  /* Variabel sidebar (dari Shadcn UI, jika relevan untuk layout Anda) */
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+
+  /* Radius (dari Shadcn UI untuk konsistensi pembulatan elemen) */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* --- 3. Variabel Warna Biru Kustom Anda (Ini akan digunakan langsung oleh komponen) --- */
+  /* Kita akan mendefinisikan nilai HEX langsung di :root dan .dark */
+  --color-blue-dark: var(--blue-dark);
+  --color-blue-medium: var(--blue-medium);
+  --color-blue-light: var(--blue-light);
+  --color-blue-accent: var(--blue-accent);
+  --color-blue-darker: var(--blue-darker);
+  /* Tambahkan ini jika Anda menggunakannya */
+}
+
+/* --- 4. Definisi Nilai Warna untuk Tema Terang (Default) --- */
+:root {
+  --radius: 0.625rem;
+
+  /* Warna Dasar */
+  --background: #FFFFFF;
+  /* Putih bersih */
+  --foreground: #1A202C;
+  /* Hampir hitam gelap */
+
+  /* Warna Biru Kustom Anda (nilai HEX langsung) */
+  --blue-dark: #0A2647;
+  /* Sangat gelap, untuk background gelap atau teks gelap */
+  --blue-medium: #144272;
+  /* Medium gelap */
+  --blue-light: #205295;
+  /* Lebih terang */
+  --blue-accent: #2C74B3;
+  /* Aksen utama, biru cerah */
+  --blue-darker: #010409;
+  /* Sangat sangat gelap, untuk card di dark mode atau background di light mode */
+
+
+  /* Pemetaan ke Variabel Shadcn UI untuk Light Mode */
+  --primary: var(--blue-dark);
+  --primary-foreground: #FFFFFF;
+
+  --secondary: #E2E8F0;
+  --secondary-foreground: var(--foreground);
+
+  --accent: var(--blue-accent);
+  --accent-foreground: #FFFFFF;
+
+  --muted: #F0F4F8;
+  --muted-foreground: #718096;
+
+  --card: #FFFFFF;
+  --card-foreground: var(--foreground);
+  --popover: #FFFFFF;
+  --popover-foreground: var(--foreground);
+
+  --destructive: #EF4444;
+  --border: #E2E8F0;
+  --input: #FFFFFF;
+  --ring: var(--blue-accent);
+
+  --chart-1: var(--blue-accent);
+  --chart-2: var(--blue-light);
+  --chart-3: var(--blue-medium);
+  --chart-4: var(--blue-dark);
+  --chart-5: #63B3ED;
+  /* Biru lebih terang */
+
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--blue-dark);
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: var(--blue-accent);
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #E2E8F0;
+  --sidebar-ring: var(--blue-accent);
+
+
+}
+
+/* --- 5. Definisi Nilai Warna untuk Tema Gelap --- */
+.dark {
+  /* Warna Dasar */
+  --background: #0F172A;
+  /* Biru sangat gelap (hampir hitam) */
+  --foreground: #F8FAFC;
+  /* Putih keabu-abuan */
+
+  /* Warna Biru Kustom Anda (nilai HEX langsung) */
+  --blue-dark: #0A2647;
+  /* Sama seperti light, atau bisa disesuaikan untuk dark mode */
+  --blue-medium: #144272;
+  --blue-light: #205295;
+  --blue-accent: #58A6FF;
+  /* Biru aksen yang lebih terang untuk kontras di dark mode */
+  --blue-darker: #010409;
+  /* Sangat sangat gelap, untuk card di dark mode atau background di light mode */
+
+  /* Pemetaan ke Variabel Shadcn UI untuk Dark Mode */
+  --primary: var(--blue-accent);
+  /* Menggunakan blue-accent yang lebih terang sebagai primary di dark */
+  --primary-foreground: var(--foreground);
+
+  --secondary: #1F2937;
+  --secondary-foreground: var(--foreground);
+
+  --accent: var(--blue-accent);
+  --accent-foreground: var(--foreground);
+
+  --muted: #1F2937;
+  --muted-foreground: #94A3B8;
+
+  --card: #1E293B;
+  --card-foreground: var(--foreground);
+  --popover: #1E293B;
+  --popover-foreground: var(--foreground);
+
+  --destructive: #DC2626;
+  --border: #334155;
+  --input: #1E293B;
+  --ring: var(--blue-accent);
+
+  --chart-1: var(--blue-accent);
+  --chart-2: var(--blue-light);
+  --chart-3: var(--blue-medium);
+  --chart-4: var(--blue-dark);
+  --chart-5: #63B3ED;
+
+  --sidebar: var(--background);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--blue-accent);
+  --sidebar-primary-foreground: var(--foreground);
+  --sidebar-accent: #1F2937;
+  /* Bisa disesuaikan */
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--blue-accent);
+}
+
+/* --- 6. Layer Base untuk Styling Dasar --- */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

@@ -1,0 +1,43 @@
+services:
+  web:
+    build:
+      context: .
+      target: development
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    env_file:
+      - .env.development
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
+
+  staging:
+    build:
+      context: .
+      target: runner
+    ports:
+      - "3100:3000"
+    env_file:
+      - .env.staging
+    environment:
+      - NODE_ENV=staging
+    command: npm start
+    depends_on:
+      - web
+
+  production:
+    build:
+      context: .
+      target: runner
+    ports:
+      - "3200:3000"
+    env_file:
+      - .env.production
+    environment:
+      - NODE_ENV=production
+    command: npm start
+    depends_on:
+      - web
